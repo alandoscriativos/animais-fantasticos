@@ -1,0 +1,276 @@
+body,h1,h2,ul,li,p,dd,dt,dl{
+    padding: 0px;
+    margin: 0px;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+}
+
+ul{
+    list-style: none;
+}
+
+body{
+    scroll-behavior: smooth;
+    background: #FAF6ED;
+    color: #222;
+    -webkit-font-smoothing: antialised;
+    display: grid;
+    grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
+}
+/*AQUI COMEÇA MENU*/
+.menu{
+    grid-column: 3 / 5;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background: #FB5;
+}
+
+.menu ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.menu li a{
+    display: block;
+    padding: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #222;
+    font-family: monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+/*AQUI TERMINA*/
+
+
+/*AQUI COMEÇA OS ANIMAIS*/
+.grid-section{
+    display: grid;
+    grid-template-columns: 90px 300px 1fr;
+    grid-column: 2 / 4;
+    grid-gap: 20px;
+    margin-bottom: 4rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.titulo{
+    font-display: georgia;
+    font-size: 6rem;
+    line-height: 1;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    grid-column: 1 / 4;
+}
+
+.animais h2{
+    font-family: monospace;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: #e54;
+}
+
+.animais h2::before{
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 10px;
+    margin-right: 10px;
+    background: #FB5;
+}
+
+.animais p{
+    font-family:Helvetica;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.animais-lista{
+    height: 370px;
+    overflow-y: scroll;
+    grid-column: 2;
+}
+
+.animais-lista::-webkit-scrollbar{
+    width: 18px;
+}
+
+.animais-lista::-webkit-scrollbar-thumb{
+    background: #FB5;
+    border-left: 4px solid #FAF6ED;
+    border-right: 4px solid #FAF6ED;
+    border-radius: 8px;
+}
+
+.animais-lista::-webkit-scrollbar-track{
+    background: #FAF6ED;
+}
+
+.animais-descricao{
+    grid-column: 3;
+}
+
+.animais-descricao section{
+    margin-bottom: 3rem;
+}
+
+/*AQUI TERMINA OS ANIMAIS*/
+
+/*AQUI COMEÇA AS FAQ*/
+
+.faq-lista{
+    grid-column: 2 / 4;
+}
+
+.faq-lista dt{
+    font-size: 1.2rem;
+    font-family: monospace;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: .5rem;
+    color: #e54;
+}
+
+.faq-lista dt::before{
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 10px;
+    margin-right: 10px;
+    background: #FB5;
+}
+
+.faq-lista dd {
+    font-family: Arial;
+    margin-bottom: .5rem;
+    margin-left: 30px;
+}
+
+/*AQUI COMEÇA O CONTATO*/
+
+.mapa {
+    grid-column: 2;
+}
+
+.dados{
+    grid-column: 3;
+}
+
+.dados li{
+    font-family: Helvetica;
+    margin-bottom: 1rem;
+}
+
+.dados li::before{
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 10px;
+    margin-right: 10px;
+    background: #FB5;
+}
+
+/*RODAPE*/
+
+.copy{
+    grid-column: 3 / 5;
+    margin-bottom: 2rem;
+    background: #FB5;
+}
+
+.copy p{
+    padding: 20px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+/*RESPONSIVEL*/
+@media (max-width: 700px){
+    body{
+        grid-template-columns: 1fr;
+    }
+    .menu, .grid-section, .copy{
+        grid-column: 1;
+    }
+    .grid-section{
+        grid-template-columns: 100px 1fr;
+        grid-gap: 10px;
+    }
+    .animais-lista{
+        grid-column: 1;
+    }
+    .faq-lista, .dados, .mapa{
+        grid-column: 1 / 3;
+    }
+    .grid-section h1{
+        font-size: 3rem;
+    }
+    .menu{
+        margin-top: 0px;
+    }
+    .copy{
+        margin-top: 0px;
+    }
+}
+
+/*SCRIPT class ativo*/
+
+.js-tabmenu li{
+    cursor: pointer;
+}
+
+.js .js-tabcontent section{
+    display: none;
+}
+
+.js-tabcontent section.ativo{
+    display: block !important;
+    transform: matrix3d(-30px, 0, 0);
+    animation: show 1s forwards;
+}
+
+
+@keyframes show {
+    from{
+        opacity: 0;
+        transform: matrix3d(-30px, 0, 0);
+    }
+    to{
+        opacity: 1;
+        transform: matrix3d(0, 0, 0);
+    }
+}
+
+/*ACCORDIN*/
+
+.js-accordion dt{
+    cursor: pointer;
+}
+
+.js-accordion dt::after{
+    content: '↴';
+    margin-left: 10px;
+}
+
+.js-accordion dt.ativo::after{
+    content: '↰';
+    color: #FB5;
+    margin-left: 10px;
+}
+
+.js .js-accordion dd{
+    display: none;
+}
+
+.js .js-accordion dd.ativo{
+    display: block;
+    animation: show 1s forwards;
+}
